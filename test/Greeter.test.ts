@@ -7,6 +7,9 @@ describe("Greeter - Normal", function () {
     const greeter = await Greeter.deploy("Hello, world!")
     await greeter.deployed()
 
+    console.log("Greeter deployed to:", greeter.address)
+    console.log("print world:", await greeter.world())
+
     expect(await greeter.greet()).to.equal("Hello, world!")
 
     const setGreetingTx = await greeter.setGreeting("Hola, mundo!")
